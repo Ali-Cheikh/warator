@@ -1,6 +1,7 @@
 # Warator - WhatsApp Link Generator
 
 Warator is a simple tool to generate custom WhatsApp links with pre-filled messages. This tool helps you create a direct link to your WhatsApp chat with just a click—no need to save numbers or search contacts. Share links with friends, customers, or anyone easily!
+![alt text](image.png)
 
 ## Features
 
