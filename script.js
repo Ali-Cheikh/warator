@@ -1,4 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-button');
+
+    faqButtons.forEach(button => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        
+        if (content && icon) {
+            content.style.maxHeight = '0px';
+            content.classList.add('overflow-hidden', 'transition-all', 'duration-300');
+            icon.style.transition = 'transform 0.3s ease';
+            icon.style.transform = 'rotate(0deg)';
+        }
+
+        button.addEventListener('click', () => {
+            const isActive = !content.classList.contains('hidden');
+
+            // Close all other open FAQs
+            faqButtons.forEach(otherButton => {
+                const otherContent = otherButton.nextElementSibling;
+                const otherIcon = otherButton.querySelector('svg');
+
+                if (otherContent !== content) {
+                    otherContent.style.maxHeight = '0px';
+                    otherContent.classList.add('hidden');
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            if (isActive) {
+                content.style.maxHeight = '0px';
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.remove('hidden');
+                const scrollHeight = content.scrollHeight;
+                content.style.maxHeight = scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('wa-form');
     const resultSection = document.getElementById('result');
     const waLinkInput = document.getElementById('wa-link');
