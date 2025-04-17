@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>warator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-800min-w-full min-h-screen">
+    <main class="min-w-full bg-gray-100 min-h-screen flex flex-col  items-center justify-center py-12">
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12 p-8 max-w-5xl">
+            <div class="text-left md:w-1/2">
+                <h1 class="text-4xl font-bold text-green-800 mb-4">Generate your FREE WhatsApp Link Now!</h1>
+                <p class="text-gray-600 text-lg">Create custom Links with pre-filled messages on WhatsApp. No saving
+                    numbers, no searching contacts – just instant WhatsApp connection!</p>
+                <div class="mt-6">
+                    <a href="#wa-form"
+                        class="flex items-center justify-center lg:inline-block bg-green-700 opacity-80 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all text-lg font-semibold">
+                        Wa-Rate Now!!
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:w-1/2">
+                <img src="https://www.interakt.shop/wp-content/uploads/2024/05/Group-37105-1.png"
+                    alt="WhatsApp Link Generator illustration" class="w-full h-auto" width="1229" height="1064"
+                    loading="eager" decoding="async" />
+            </div>
+        </div>
+        <div
+            class="flex flex-col bg-white rounded-xl shadow-md p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 max-w-5xl">
+            <!-- Left Box -->
+            <div>
+                <h2 class="text-xl font-bold text-center mb-6 text-green-800">Create your WhatsApp chat Link</h2>
+
+                <!-- Replace the existing form with this updated version -->
+                <form id="wa-form" class="space-y-4">
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700 mb-2 font-semibold">WhatsApp Number (with Country Code)</label>
+                        <input id="phone" type="tel" placeholder="+216 26 600 238"
+                            class="w-full px-4 py-2 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            required pattern="^\+[0-9]{1,}$" />
+                        <p class="text-sm text-gray-500 mt-1">Example: +1 234567890</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 mb-2 font-semibold">Welcome Message (optional)</label>
+                        <textarea id="message" rows="2" placeholder="Enter your message here"
+                            class="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="includePageInfo" class="rounded text-green-600" />
+                            <span class="text-sm text-gray-700">Include page information in message</span>
+                        </label>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="utm" class="block text-gray-700 mb-2 font-semibold">UTM Campaign (optional)</label>
+                        <input type="text" id="utm" placeholder="Campaign name"
+                            class="w-full px-4 py-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400" />
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <button type="submit"
+                            class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800 transition-all">
+                            Create WhatsApp Link
+                        </button>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div id="result" class="flex items-center gap-4 hidden">
+                        <input id="wa-link" type="text" readonly
+                            class="flex-1 px-4 py-2 border rounded bg-gray-100 text-sm" />
+                        <button id="copy-button" type="button"
+                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                            Copy Link
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Instructions -->
+            <div class="text-gray-800 border-l-2 pl-6 border-green-500">
+                <h3 class="text-xl font-semibold mb-4">How to generate your WhatsApp Link:</h3>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <div
+                            class="flex items-center justify-center bg-green-600 opacity-80  text-white w-6 h-6 rounded-full mr-3">
+                            1</div>
+                        <p>Enter the mobile number complete with country code</p>
+                    </li>
+                    <li class="flex items-start">
+                        <div
+                            class="flex items-center justify-center bg-green-600 opacity-80  text-white w-6 h-6 rounded-full mr-3">
+                            2</div>
+                        <p>Enter a message text that the customers will send you by clicking on the Link</p>
+                    </li>
+                    <li class="flex items-start">
+                        <div
+                            class="flex items-center justify-center bg-green-600 opacity-80  text-white w-6 h-6 rounded-full mr-3">
+                            3</div>
+                        <p>Press the 'Create WhatsApp Link' button and copy the generated Link to share</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- footer singed to my name and the year -->
+
+    </main>
+    <div class="bottom-0 w-full bg-green-700 opacity-80 text-white text-center py-7 px-4">
+            <div class="flex flex-col items-center justify-center gap-2">
+                <p class="text-sm">This website is not affiliated with WhatsApp Inc.</p>
+                <p class="text-sm">This is a free tool to generate WhatsApp Links.</p>
+                <p class="text-sm">For more information, visit this <a href="https://faq.whatsapp.com/5913398998672934" target="_blank"
+                        class="text-white underline">Resource</a>.</p>
+        <p class="text-sm">© 2024 warator. All rights reserved.</p>
+        <p class="text-sm">Made with ❤️ using HTML, CSS, and JavaScript</p>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
